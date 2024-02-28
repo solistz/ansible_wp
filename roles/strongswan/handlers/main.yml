@@ -1,0 +1,17 @@
+---
+- name: restart strongswan
+  service:
+    name=strongswan-starter
+    state=restarted
+
+- name: reload ipsec
+  command: ipsec rereadsecrets
+  
+- name: reload sysctl
+  command: sysctl -p "{{ sysctl_c }}"
+
+- name: restart iptables
+  service:
+    name=iptables
+    state=restarted
+  

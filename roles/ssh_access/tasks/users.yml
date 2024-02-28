@@ -1,0 +1,27 @@
+- name: Add user black
+  user:
+    name: black
+    shell: /bin/bash
+    createhome: yes
+    groups: ssh_login, sudo_admins
+    append: yes
+
+- name: Add user zhydan-ap
+  user:
+    name: zhydan-ap
+    shell: /bin/bash
+    createhome: yes
+    groups: ssh_login, sudo_admins
+    append: yes
+
+- name: Set authorized key for black
+  authorized_key:
+    user: black
+    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHVlS3eakI31WMVzw3WEiWoLNFXZPdqA8mcAoPYEse2J6mLwbIS17m4OEt89I6bYCZuKgLZSoAlNX3ulv392wrkhC8MRwmokb2/yWjEyzxRkHUBwK1qFm7SerycKKyx14TcV7lAdQ3eq03Vvf3sIbzicr9R6TXN2uyVYPtLh7eLuZrlAjKrWo5sKHd9U5NYEE8vjmjvveuEkDfrJ3T39vSh9Y41I0HgdmVrcn8LKXZtMNfwLc2pm4HW/8ZtVnng6/IVLykksnFMmWy/kimcU7UhSrXu/R+IzYIU4MiIMCMOJvKS3Uz8nYSsEDXDLGVcp4GV0+/lVP+Ap/eSJsuAjPjytFeTIx6Zs8aCFIFp9JxqUtUL1ZqD22GnwzrC2zXzaTTNdae64oazd+crcYJHCd3iSzAhDKhUEUuJhIKUlWpjkZIded+AGrvyymT/o3oNt8M6J6KGeB1iY2VPyQusUraUndP89WNbzPRryU2PbogSWhT+YNRk8fGohd0GYnkwxU= black@black"
+    state: present
+
+- name: Set authorized key zhydan-ap
+  authorized_key:
+    user: zhydan-ap
+    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDvrk0S/bqihZTFdyCqAhy0eObVrhaIPd6Z3+U9Ivbyt7Eu1zFYLq4BYtVkoRHovWerGLc11SZi4mH0NswKbz75Sh9zjfuNzM/mWu3tWgpp4XoJ5XpNRFv5QGJwbw3FiZ+OkVJQXaHdiBCzFoh0kaetSPV1+S423FcQQ4nskmJs5WWvBWPZ2FlXXoQC+DQHoGH7plKhLEOxV5x1L5LS7Q9WLmmrzvVWhpRS1t4QNySCJV/ORkTiCD8n/ZFfJQwRBkOFY6nQeoAIEHEHz77+HpQWF/csV/tI2d6WKTEbM8CojkQqe8Piceb8J+R9mzvqm9YXCRlcB0ejwEpdVHMrrwKcrYhkm1lWmnUqYrZWPwAHmy+Ui+P/uxfYctVOVNOIbrxBxP0TpXe97JMeyRBcp97kzlADqJbWiYzUr0s2CK3ctUJkZT0ag7qpBohYlnk/gTqvTgcau35yy4cUNoLWXLTv0dttlpMU0JKSBqVnqcy7H6X+XuP4VMQzePb7C2erbxxWNES0L9Ix7su+XiuIduD8qOmzp4n9UBZiaVDr0ItOnGzofCvx+KRjrAldIxLA1G6y9LmSGE7ZWoOEjhGX///L8eJXOE4o1GECmm0guC6ClicVP+uHOAQjJh65+bVmEJ+GpA6qGRk+khYSX2QMIkhHhTbvSHBZEvZY8mNP75FQdQ== iiva@zap-hpeb"
+    state: present

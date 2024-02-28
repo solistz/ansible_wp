@@ -1,0 +1,31 @@
+---
+
+- name: Gen ca_key
+  ansible.builtin.shell: pki --gen --type rsa --size 4096 --outform pem > /etc/ipsec.d/private/ca-key.pem
+  register: ca_key
+
+- name: Gen ca_cert
+  ansible.builtin.shell: pki --self --ca --lifetime 3650 --in /etc/ipsec.d/private/ca-key.pem --type rsa --dn "CN={{ cert_cn }}" --outform pem > /etc/ipsec.d/cacerts/{{ ca_cert }}
+  register: ca_cert
+
+- name: Gen ser_key
+  ansible.builtin.shell: pki --gen --type rsa --size 4096 --outform pem > /etc/ipsec.d/private/server-key.pem
+  register: ser_key
+
+- debug:
+    var: ca_key.stdout_lines
+
+- debug:
+    var: ca_key.stdout_lines
+
+- debug:
+    var: ca_key.stdout_lines
+
+- name: Gen ser_cert
+  ansible.builtin.shell: pki --pub --in /etc/ipsec.d/private/server-key.pem --type rsa | pki --issue --lifetime 1825 --cacert /etc/ipsec.d/cacerts/{{ ca_cert }} --cakey /etc/ipsec.d/private/ca-key.pem --dn "CN={{ domain }}" --san {{ ip_addr }} --san {{ domain }} --flag serverAuth --flag ikeIntermediate --outform pem > /etc/ipsec.d/certs/server-cert.pem
+  register: ser_cert
+
+- debug:
+    var: ser_cert.stdout_lines
+
+

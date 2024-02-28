@@ -1,0 +1,17 @@
+---
+
+domain : hez.km.ua
+cert_cn : HEZ-IPSec           # Назва сертифіката Довільна назва HEZ-IPSec
+ca_cert : ca-cert.pem         # публічний сертифікат (ca-cert.yml)
+ip_local : 10.100.100.0/24    # Локальна мережа в тунелі
+############################################## ipsec.conf -> leftid || ip адреса або @hez.km.ua
+#ip_addr : "{{ ansible_default_ipv4.address }}"
+ip_addr : "{{ domain }}" 
+##############################################
+ip_or_dn: "{{ domain }}" 
+dns : "{{ ansible_dns.nameservers[0] }}"
+#dns : 10.200.0.9
+sysctl_c : /etc/sysctl.conf
+interface : "{{ ansible_default_ipv4.interface }}"
+ssh_port : 22
+path_ipsec : hez

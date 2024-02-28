@@ -1,0 +1,2 @@
+ansible_password		: 111111
+ansible_ssh_user		: root

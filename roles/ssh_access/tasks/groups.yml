@@ -1,0 +1,25 @@
+---
+- name: install sudo package
+  package: name=sudo state=latest
+  # when:
+  #   - ansible_os_family == 'Debian'
+  #   - ansible_os_family == 'RedHat'
+  #   - ansible_os_family == 'Sangoma'
+
+- name: create ssh_login group
+  group:
+    name: ssh_login
+    state: present
+
+- name: Chek admins group
+  group:
+    name: sudo_admins
+    state: present
+
+- name: Add sudo rights
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%sudo_admins'
+    line: '%sudo_admins ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'

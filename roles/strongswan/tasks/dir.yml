@@ -1,0 +1,25 @@
+---
+- name: Recursively change ownership of a directory
+  ansible.builtin.file:
+    path: "{{ item }}"
+    #path: /tmp/test1/{cacerts,certs,private}
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+    mode: '0644'
+  loop:
+    - /tmp/test/cacerts
+    - /tmp/test/certs
+    - /tmp/test/private
+
+- name: Shell LS -LA
+  ansible.builtin.shell: ls -la /tmp/test/
+  register: lstmp
+
+- name: Display output
+  ansible.builtin.debug:
+    var: lstmp.stdout_lines
+
+- debug:
+  var: lstmp.stdout_lines

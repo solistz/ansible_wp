@@ -1,9 +1,0 @@
----
-###################################
-#- import_tasks: dir.yml
-#- import_tasks: ca_gen.yml
-###################################
-- import_tasks: upd.yml
-- import_tasks: apt.yml
-- import_tasks: ca_copy.yml
-- import_tasks: cp_conf.yml

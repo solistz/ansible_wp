@@ -7,8 +7,4 @@ Host 202
   HostName 10.200.0.202
   User zh
 
-Host wp_2507
-  HostName hez.km.ua
-  Port 2507
-  User zhydan-ap
-  IdentityFile /home/zh/.ssh/id_rsa
+

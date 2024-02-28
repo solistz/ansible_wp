@@ -1,5 +1,6 @@
 ---
 # Install soft
+
 - name: Install a list of packages
   ansible.builtin.apt:
     pkg:
@@ -17,16 +18,8 @@
       - net-tools
       - bash-completion
       - tcpdump
-  # =============== StrongSWAN
-      - iptables
-      - iptables-persistent
-      - strongswan
-      - strongswan-pki
-      - strongswan-charon
-      - libcharon-extra-plugins
-      - libcharon-extauth-plugins
-      - libstrongswan
-      - libstrongswan-standard-plugins
-      - libstrongswan-extra-plugins
-      - libtss2-tcti-tabrmd0
-      - libtss2-tcti-tabrmd-dev
+
+#Apache Configuration
+- name: Install LAMP Packages
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'apache2', 'mariadb-server', 'python3-pymysql', 'php', 'php-mysql', 'libapache2-mod-php', 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip' ]

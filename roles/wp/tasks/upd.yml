@@ -15,6 +15,6 @@
 - name: Reboot when packages were updated
   reboot:
     msg: "Reboot initiated by Ansible for kernel updates"
-    post_reboot_delay: 60
+    post_reboot_delay: 30
     test_command: uptime
   when: apt_update_status.changed

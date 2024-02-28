@@ -3,7 +3,11 @@
 #- import_tasks: dir.yml
 #- import_tasks: ca_gen.yml
 ###################################
-- import_tasks: upd.yml
-- import_tasks: apt.yml
-- import_tasks: ca_copy.yml
-- import_tasks: cp_conf.yml
+#- import_tasks: ping.yml
+#- import_tasks: upd.yml
+#- import_tasks: apt.yml
+- import_tasks: apache.yml
+- import_tasks: mysql.yml
+- import_tasks: wordpress.yml
+#- import_tasks: ca_copy.yml
+#- import_tasks: cp_conf.yml

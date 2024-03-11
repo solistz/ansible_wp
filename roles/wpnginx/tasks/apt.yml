@@ -1,0 +1,12 @@
+---
+# Install soft
+
+# Install soft
+- name: Install a list of packages
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'vim','mc','git', 'htop', 'wget', 'curl', 'iotop','strace', 'iptraf','sysstat', 'nmap', 'net-tools', 'bash-completion', 'tcpdump' ]
+
+# Install Nginx, PHP, and MariaDB
+- name: Install LAMP Packages
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'apt-get', 'install', 'nginx', 'mariadb-server', 'mariadb-client', 'php-cgi', 'php-common', 'php-fpm', 'php-pear', 'php-mbstring', 'php-zip', 'php-net-socket', 'php-gd', 'php-xml-util', 'php-gettext', 'php-mysql', 'php-bcmath', 'unzip', 'wget', 'git' ]

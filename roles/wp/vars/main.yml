@@ -6,8 +6,9 @@ mysql_user: "dbu_bilochka"
 mysql_password: "Ti7V{jWvZuJ16L565(lKEO"
 
 app_user: "zhydan-ap"
-http_host: "test.hez.km.ua"
-http_conf: "test.hez.km.ua.conf"
+
+http_host: "b1.hez.km.ua"
+http_conf: "b1.hez.km.ua.conf"
 http_port: "80"
 disable_default: true
 

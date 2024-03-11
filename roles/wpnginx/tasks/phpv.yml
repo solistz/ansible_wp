@@ -1,0 +1,47 @@
+---
+- name: Отримати версію PHP
+  shell: php -v | grep -oP '^PHP \K[0-9]+\.[0-9]+' | head -1
+  register: php_version_output
+
+- name: Встановити змінну php_version
+  set_fact:
+    php_version: "{{ php_version_output.stdout }}"
+
+- name: Вивести версію PHP
+  debug:
+    msg: "Версія PHP: {{ php_version }}"
+
+- name: Редагувати php.ini файл
+  ansible.builtin.lineinfile:
+    path: "/etc/php/{{ php_version }}/fpm/php.ini"
+    regexp: '^;?date.timezone ='
+    line: 'date.timezone = Europe/Kiev'
+    state: present
+
+- name: Редагувати php.ini файл
+  ansible.builtin.lineinfile:
+    path: "/etc/php/{{ php_version }}/fpm/php.ini"
+    regexp: '^;?max_execution_time = '
+    line: 'max_execution_time = 300'
+    state: present
+
+- name: Редагувати php.ini файл
+  ansible.builtin.lineinfile:
+    path: "/etc/php/{{ php_version }}/fpm/php.ini"
+    regexp: '^;?memory_limit ='
+    line: 'memory_limit = 512M'
+    state: present
+
+- name: Редагувати php.ini файл
+  ansible.builtin.lineinfile:
+    path: "/etc/php/{{ php_version }}/fpm/php.ini"
+    regexp: '^;?post_max_size = '
+    line: 'post_max_size = 128M'
+    state: present
+
+- name: Редагувати php.ini файл
+  ansible.builtin.lineinfile:
+    path: "/etc/php/{{ php_version }}/fpm/php.ini"
+    regexp: '^;?upload_max_filesize ='
+    line: 'upload_max_filesize = 128M'
+    state: present

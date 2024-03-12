@@ -45,3 +45,5 @@
     regexp: '^;?upload_max_filesize ='
     line: 'upload_max_filesize = 128M'
     state: present
+  notify: restart php-fpm
+

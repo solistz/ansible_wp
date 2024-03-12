@@ -1,2 +1,4 @@
 ---
 # vars file for wpnginx
+#MySQL Settings
+mysql_root_password: ")8DB]pYuI[Y4wwYV8"

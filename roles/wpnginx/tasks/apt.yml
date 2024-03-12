@@ -9,4 +9,5 @@
 # Install Nginx, PHP, and MariaDB
 - name: Install LAMP Packages
   apt: name={{ item }} update_cache=yes state=latest
-  loop: [ 'php', 'php-fpm', 'php-curl', 'php-soap', 'php-mysqlnd', 'php-xml', 'php-intl', 'php-cgi', 'php-common', 'php-pear', 'php-mbstring', 'php-zip', 'php-net-socket', 'php-gd', 'php-xml-util', 'php-mysql', 'php-bcmath', 'nginx', 'mariadb-server', 'mariadb-client', 'unzip', 'wget', 'git' ]
+  loop: [ 'php', 'php-fpm', 'php-curl', 'php-soap', 'php-mysqlnd', 'php-xml', 'php-intl', 'php-cgi', 'php-common', 'php-pear', 'php-mbstring', 'php-zip', 'php-net-socket', 'php-gd', 'php-xml-util', 'php-mysql', 'php-bcmath', 'nginx', 'mariadb-server', 'mariadb-client', 'python3-pymysql', 'unzip', 'wget', 'git' ]
+
